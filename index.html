@@ -1,65 +1,98 @@
 <!DOCTYPE html>
 <html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="icon" href="images/myself.jpg" />
+    <title>កិច្ចការស្រាវជ្រាវផ្ទាល់ខ្លួន (ឆមាសទី២)</title>
 
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <link rel="icon" href="images/myself.jpg">
-  <title>កិច្ចការស្រាវជ្រាវផ្ទាល់ខ្លួន (ឆមាសទី២)</title>
+    <!-- Styles -->
+    <link rel="stylesheet" href="css/style.css" />
+  </head>
 
-  <!-- Styles -->
-  <link rel="stylesheet" href="css/style.css" />
-
-</head>
-
-<body>
-  <div class="sticky-header">
-    <div class="header-left">
-      <img src="images/myself.jpg" alt="User Avatar" />
-      <span>Tol Tum E2</span>
+  <body>
+    <div class="sticky-header">
+      <div class="header-left">
+        <img src="images/myself.jpg" alt="User Avatar" />
+        <span>Tol Tum E2</span>
+      </div>
+      <div class="menu-icon" onclick="toggleMenu()">☰</div>
+      <div class="dropdown-menu" id="menu">
+        <a href="#number-to-word" onclick="closeMenu()">Number 2 Word</a>
+        <a href="#user-guideline" onclick="closeMenu()">User Guidelines</a>
+        <a href="#practice" onclick="closeMenu()">Practices</a>
+        <a href="#instruction" onclick="closeMenu()">Instructions</a>
+      </div>
     </div>
-    <div class="menu-icon" onclick="toggleMenu()">☰</div>
-    <div class="dropdown-menu" id="menu">
-      <a href="#number-to-word" onclick="closeMenu()">Number 2 Word</a>
-      <a href="#user-guideline" onclick="closeMenu()">User Guidelines</a>
-      <a href="#practice" onclick="closeMenu()">Practices</a>
-      <a href="#instruction" onclick="closeMenu()">Instructions</a>
-    </div>
-  </div>
 
-  <section id="number-to-word" class="hidden">
-    <h2>NUMBER 2 WORD</h2>
-    <!-- include file -->
-    <?php include "number-reading/index.html"; ?>
-  </section>
+    <section id="number-to-word" class="hidden">
+      <h2>NUMBER 2 WORD</h2>
+      <!-- Render HTML -->
+      <div id="include-number-reader"></div>
+    </section>
 
-  <section id="user-guideline" class="hidden">
-    <h2>USER GUIDELINES</h2>
-    <p>Instructions for Installing the Application and Setting Up an Account via Email.</p>
-    <!-- include file -->
-    <?php include "user-guidelines/index.html"; ?>
+    <section id="user-guideline" class="hidden">
+      <h2>USER GUIDELINES</h2>
+      <p>
+        Instructions for Installing the Application and Setting Up an Account
+        via Email.
+      </p>
+      <!-- Render HTML -->
+      <div id="include-user-guideline"></div>
+      <br />
+      <h2>REGISTRATION</h2>
+      <label
+        >Google Site :
+        <a
+          style="text-decoration: underline"
+          href="https://sites.google.com/view/toltum"
+          >http://site.toltum.com</a
+        ></label
+      >
+      <label
+        >Google Blogger :
+        <a style="text-decoration: underline" href="https://toltum.blogspot.com"
+          >http://blog.toltum.com</a
+        ></label
+      >
+    </section>
 
-    <br>
-    <h2>REGISTRATION</h2>
-    <label>Google Site : <a style="text-decoration: underline;" href="https://sites.google.com/view/toltum">http://site.toltum.com</a></label>
-    <label>Google Blogger : <a style="text-decoration: underline;" href="https://toltum.blogspot.com">http://blog.toltum.com</a></label>
-  </section>
+    <section id="practice" class="hidden">
+      <h2>PRACTICES</h2>
+      <!-- Render HTML -->
+      <div id="include-practice"></div>
+    </section>
 
-  <section id="practice" class="hidden">
-    <h2>PRACTICES</h2>
-    <?php include "practice/index.html"; ?>
-  </section>
+    <section id="instruction" class="hidden">
+      <h2>INSTRUCTIONS</h2>
+      <div class="instruction">
+        <img src="images/instruction1.jpg" alt="Instruction step 1" />
+        <img src="images/instruction2.jpg" alt="Instruction step 2" />
+      </div>
+    </section>
 
-  <section id="instruction" class="hidden">
-    <h2>INSTRUCTIONS</h2>
-    <div class="instruction">
-      <img src="images/instruction1.jpg" alt="Instruction step 1" />
-      <img src="images/instruction2.jpg" alt="Instruction step 2" />
-  </div>
-  </section>
+    <!-- Scripts -->
+    <script src="javascript/script.js"></script>
+    <script>
 
-  <!-- Scripts -->
-  <script src="javascript/script.js"></script>
-</body>
+      fetch("number-reading/index.html")
+        .then((response) => response.text())
+        .then((data) => {
+          document.getElementById("include-number-reader").innerHTML = data;
+        });
 
+      fetch("user-guideline/index.html")
+        .then((response) => response.text())
+        .then((data) => {
+          document.getElementById("include-user-guideline").innerHTML = data;
+        });
+
+      fetch("practice/index.html")
+        .then((response) => response.text())
+        .then((data) => {
+          document.getElementById("include-practice").innerHTML = data;
+        });
+
+    </script>
+  </body>
 </html>
