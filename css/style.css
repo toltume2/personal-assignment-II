@@ -257,7 +257,6 @@ a {
 label {
   font-size: 1.1em;
   margin-bottom: 10px;
-  display: block;
 }
 
 input[type="number"] {
@@ -291,9 +290,7 @@ input[type="number"]:focus {
 .block {
   background: white;
   border-radius: 10px;
-  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
   flex: 1 1 30%;
-  padding: 20px;
   max-width: 100%;
 }
 

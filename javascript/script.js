@@ -265,7 +265,13 @@ function convertNumber() {
     return;
   }
 
-  const usd = riel / 4000;
+  // Get exchange rate base on input
+  var exchangeRate = document.getElementById("custom_exchange_rate").value;
+  if (!exchangeRate) {
+    exchangeRate = 4000;
+  }
+
+  const usd = riel / exchangeRate;
 
   document.getElementById("usdValue").textContent =
     "USD: " + formatCurrency(usd.toFixed(2));
@@ -274,6 +280,10 @@ function convertNumber() {
     capitalizeFirstLetter(numberToWordsEn(Math.floor(riel)));
   document.getElementById("khmerResult").textContent =
     "Khmer: " + numberToKhmerWords(Math.floor(riel));
+}
+
+function convertAmountAsCustomExchangeRate() {
+  convertNumber();
 }
 
 // Capitalize first letter of English word

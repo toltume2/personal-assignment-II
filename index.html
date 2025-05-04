@@ -1,98 +1,400 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <link rel="icon" href="images/myself.jpg" />
-    <title>កិច្ចការស្រាវជ្រាវផ្ទាល់ខ្លួន (ឆមាសទី២)</title>
 
-    <!-- Styles -->
-    <link rel="stylesheet" href="css/style.css" />
-  </head>
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <link rel="icon" href="images/myself.jpg" />
+  <title>កិច្ចការស្រាវជ្រាវផ្ទាល់ខ្លួន (ឆមាសទី២)</title>
 
-  <body>
-    <div class="sticky-header">
-      <div class="header-left">
-        <img src="images/myself.jpg" alt="User Avatar" />
-        <span>Tol Tum E2</span>
+  <!-- Styles -->
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+
+<body>
+
+  <!-- Headers -->
+  <div class="sticky-header">
+    <div class="header-left">
+      <img src="images/myself.jpg" alt="User Avatar" />
+      <span>Tol Tum E2</span>
+    </div>
+    <div class="menu-icon" onclick="toggleMenu()">☰</div>
+    <div class="dropdown-menu" id="menu">
+      <a href="#number-reader" onclick="closeMenu()">Number Reader</a>
+      <a href="#user-guideline" onclick="closeMenu()">User Guidelines</a>
+      <a href="#practice" onclick="closeMenu()">Practices</a>
+      <a href="#instruction" onclick="closeMenu()">Instructions</a>
+    </div>
+  </div>
+
+  <!-- Number Reader -->
+  <section id="number-reader" class="hidden">
+    <h2>NUMBER READER</h2>
+    <div>
+      <label>Enter the amount in Khmer Riel to view the value in words (Khmer &
+        English) and its converted USD amount (based on 1 USD = 4000៛ as default).</label>
+      <br>
+      <input type="number" id="custom_exchange_rate" placeholder="Custom Exchange Rate" oninput="convertAmountAsCustomExchangeRate()">
+      <input type="number" id="number" placeholder="(Max: 999,999,999)" oninput="convertNumber()" />
+
+      <p class="result" id="englishResult"></p>
+      <p class="result" id="khmerResult"></p>
+      <p class="result" id="usdValue"></p>
+    </div>
+  </section>
+
+  <!-- User Guidelines -->
+  <section id="user-guideline" class="hidden">
+    <h2>USER GUIDELINES</h2>
+    <p>
+      Instructions for Installing the Application and Setting Up an Account
+      via Email.
+    </p>
+    <div>
+      <!-- Tabs -->
+      <div class="tabs">
+        <button class="tab active" data-tab="outlook">Microsoft Outlook</button>
+        <button class="tab" data-tab="thunderbird">Mozilla Thunderbird</button>
+        <button class="tab" data-tab="gmail">Gmail</button>
       </div>
-      <div class="menu-icon" onclick="toggleMenu()">☰</div>
-      <div class="dropdown-menu" id="menu">
-        <a href="#number-to-word" onclick="closeMenu()">Number 2 Word</a>
-        <a href="#user-guideline" onclick="closeMenu()">User Guidelines</a>
-        <a href="#practice" onclick="closeMenu()">Practices</a>
-        <a href="#instruction" onclick="closeMenu()">Instructions</a>
+
+      <!-- Microsoft Outlook -->
+      <div class="tab-content active" id="outlook">
+        <header>
+          <h1>Microsoft Outlook - Email Setup Guide</h1>
+          <p>Follow the steps to add your email account to Microsoft Outlook.</p>
+        </header>
+        <div>
+          <div class="step">
+            <img src="https://cdn-icons-png.flaticon.com/512/179/179386.png" alt="Open Outlook" />
+            <div class="step-content">
+              <h2>Step 1: Open Microsoft Outlook</h2>
+              <p>
+                Click the Outlook icon on your computer. If not installed, download
+                Outlook from Microsoft Office website.
+                <a href="https://www.microsoft.com/en/microsoft-365/outlook/email-and-calendar-software-microsoft-outlook?market=af#Download-the-app"
+                  target="_blank">Go to Download</a>
+              </p>
+            </div>
+          </div>
+
+          <div class="step">
+            <img src="https://cdn-icons-png.flaticon.com/512/1250/1250615.png" alt="Add Account" />
+            <div class="step-content">
+              <h2>Step 2: Add a New Account</h2>
+              <p>
+                Click <strong>File</strong> → <strong>Account Settings</strong> →
+                <strong>Add Account</strong>.
+              </p>
+            </div>
+          </div>
+
+          <div class="step">
+            <img src="https://cdn-icons-png.flaticon.com/512/942/942748.png" alt="Enter Email Address" />
+            <div class="step-content">
+              <h2>Step 3: Enter Your Email Address</h2>
+              <p>
+                Type your full email address and click
+                <strong>Connect</strong>.
+              </p>
+            </div>
+          </div>
+
+          <div class="step">
+            <img src="https://cdn-icons-png.flaticon.com/512/2919/2919600.png" alt="Choose Account Type" />
+            <div class="step-content">
+              <h2>Step 4: Choose Account Type</h2>
+              <p>
+                Choose <strong>IMAP</strong> for syncing emails or
+                <strong>POP</strong> if you only use one device.
+              </p>
+            </div>
+          </div>
+
+          <div class="step">
+            <img src="https://cdn-icons-png.flaticon.com/512/942/942751.png" alt="Enter Password" />
+            <div class="step-content">
+              <h2>Step 5: Enter Password</h2>
+              <p>
+                Type your email password carefully, then click
+                <strong>Connect</strong>.
+              </p>
+            </div>
+          </div>
+
+          <div class="step">
+            <img src="https://cdn-icons-png.flaticon.com/512/3588/3588658.png" alt="Server Settings" />
+            <div class="step-content">
+              <h2>Step 6: Manual Server Settings (Optional)</h2>
+              <p>If needed, enter Incoming/Outgoing server addresses manually.</p>
+            </div>
+          </div>
+
+          <div class="step">
+            <img src="https://cdn-icons-png.flaticon.com/512/751/751381.png" alt="Setup Complete" />
+            <div class="step-content">
+              <h2>Step 7: Finish Setup</h2>
+              <p>
+                When setup is complete, click <strong>Done</strong> to start using
+                Outlook.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Mozilla Thunderbird -->
+      <div class="tab-content" id="thunderbird">
+        <header>
+          <h1>Mozilla Thunderbird - Email Setup Guide</h1>
+          <p>Follow these simple steps to add your email account to Thunderbird.</p>
+        </header>
+
+        <div>
+          <div class="step">
+            <img src="https://cdn-icons-png.flaticon.com/512/167/167707.png" alt="Open Thunderbird" />
+            <div class="step-content">
+              <h2>Step 1: Open Mozilla Thunderbird</h2>
+              <p>
+                Click the Thunderbird icon. If you don't have it, download it from
+                the Mozilla website.
+                <a href="https://www.thunderbird.net/en-US/" target="_blank">Go to Download</a>
+              </p>
+            </div>
+          </div>
+
+          <div class="step">
+            <img src="https://cdn-icons-png.flaticon.com/512/1250/1250615.png" alt="Create New Account" />
+            <div class="step-content">
+              <h2>Step 2: Create a New Account</h2>
+              <p>
+                Click <strong>Email</strong> under the "Set up an account" section.
+              </p>
+            </div>
+          </div>
+
+          <div class="step">
+            <img src="https://cdn-icons-png.flaticon.com/512/942/942748.png" alt="Enter Email Info" />
+            <div class="step-content">
+              <h2>Step 3: Enter Your Email Details</h2>
+              <p>
+                Fill in your name, email address, and password. Then click
+                <strong>Continue</strong>.
+              </p>
+            </div>
+          </div>
+
+          <div class="step">
+            <img src="https://cdn-icons-png.flaticon.com/512/3050/3050324.png" alt="Manual Config" />
+            <div class="step-content">
+              <h2>Step 4: Manual Configuration</h2>
+              <p>
+                Click <strong>Manual Config</strong> if automatic setup fails. Enter
+                server details (IMAP or POP, SMTP settings).
+              </p>
+            </div>
+          </div>
+
+          <div class="step">
+            <img src="https://cdn-icons-png.flaticon.com/512/942/942751.png" alt="Confirm Settings" />
+            <div class="step-content">
+              <h2>Step 5: Confirm and Finish</h2>
+              <p>Click <strong>Done</strong> after the settings are verified.</p>
+            </div>
+          </div>
+
+          <div class="step">
+            <img src="https://cdn-icons-png.flaticon.com/512/751/751381.png" alt="Email Ready" />
+            <div class="step-content">
+              <h2>Step 6: Ready to Use</h2>
+              <p>
+                Your email account is now set up. You can start sending and
+                receiving emails.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Google Mail -->
+      <div class="tab-content" id="gmail">
+        <header>
+          <h1>Gmail - Email Setup Guide</h1>
+          <p>Follow these steps to set up your Gmail account for easy access.</p>
+        </header>
+
+        <div>
+          <div class="step">
+            <img src="https://cdn-icons-png.flaticon.com/512/300/300221.png" alt="Gmail Icon" />
+            <div class="step-content">
+              <h2>Step 1: Open Gmail</h2>
+              <p>
+                Click on the Gmail icon or open Gmail website:
+                <a href="https://mail.google.com" target="_blank">Go to Download</a>
+              </p>
+            </div>
+          </div>
+
+          <div class="step">
+            <img src="https://cdn-icons-png.flaticon.com/512/3998/3998454.png" alt="Sign In Button" />
+            <div class="step-content">
+              <h2>Step 2: Sign In</h2>
+              <p>Click <strong>Sign in</strong> at the top right of the page.</p>
+            </div>
+          </div>
+
+          <div class="step">
+            <img src="https://cdn-icons-png.flaticon.com/512/145/145867.png" alt="Enter Email" />
+            <div class="step-content">
+              <h2>Step 3: Enter Your Email Address</h2>
+              <p>
+                Type your full Gmail address (e.g., yourname@gmail.com), then click
+                <strong>Next</strong>.
+              </p>
+            </div>
+          </div>
+
+          <div class="step">
+            <img src="https://cdn-icons-png.flaticon.com/512/732/732200.png" alt="Enter Password" />
+            <div class="step-content">
+              <h2>Step 4: Enter Your Password</h2>
+              <p>Enter your password and click <strong>Next</strong> to proceed.</p>
+            </div>
+          </div>
+
+          <div class="step">
+            <img src="https://cdn-icons-png.flaticon.com/512/126/126519.png" alt="Security Check" />
+            <div class="step-content">
+              <h2>Step 5: Security Alert (Optional)</h2>
+              <p>
+                If a security check or verification is required, follow the
+                on-screen prompts to verify your identity (e.g., 2-Step
+                Verification).
+              </p>
+            </div>
+          </div>
+
+          <div class="step">
+            <img src="https://cdn-icons-png.flaticon.com/512/869/869636.png" alt="Ready to Use" />
+            <div class="step-content">
+              <h2>Step 6: Finish Setup</h2>
+              <p>
+                Once you’ve signed in, your Gmail inbox will be ready to use! Start
+                sending and receiving emails.
+              </p>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
+    <br />
+    <h2>REGISTRATION</h2>
+    <label>Google Site :
+      <a style="text-decoration: underline" href="https://sites.google.com/view/toltum"
+        target="_blank">http://site.toltum.com</a>
+    </label>
+    <label>Google Blogger :
+      <a style="text-decoration: underline" href="https://toltum.blogspot.com"
+        target="_blank">http://blog.toltum.com</a>
+    </label>
+  </section>
 
-    <section id="number-to-word" class="hidden">
-      <h2>NUMBER 2 WORD</h2>
-      <!-- Render HTML -->
-      <div id="include-number-reader"></div>
-    </section>
-
-    <section id="user-guideline" class="hidden">
-      <h2>USER GUIDELINES</h2>
-      <p>
-        Instructions for Installing the Application and Setting Up an Account
-        via Email.
-      </p>
-      <!-- Render HTML -->
-      <div id="include-user-guideline"></div>
-      <br />
-      <h2>REGISTRATION</h2>
-      <label
-        >Google Site :
-        <a
-          style="text-decoration: underline"
-          href="https://sites.google.com/view/toltum"
-          >http://site.toltum.com</a
-        ></label
-      >
-      <label
-        >Google Blogger :
-        <a style="text-decoration: underline" href="https://toltum.blogspot.com"
-          >http://blog.toltum.com</a
-        ></label
-      >
-    </section>
-
-    <section id="practice" class="hidden">
-      <h2>PRACTICES</h2>
-      <!-- Render HTML -->
-      <div id="include-practice"></div>
-    </section>
-
-    <section id="instruction" class="hidden">
-      <h2>INSTRUCTIONS</h2>
-      <div class="instruction">
-        <img src="images/instruction1.jpg" alt="Instruction step 1" />
-        <img src="images/instruction2.jpg" alt="Instruction step 2" />
+  <!-- Practices -->
+  <section id="practice" class="hidden">
+    <h2>PRACTICES</h2>
+    <div class="container">
+      <div class="block">
+        <h2>៣០ ចំណុចដែលខ្ញុំយល់ពីវីដេអូ</h2>
+        <ol>
+          <li>AnswerCallbackQuery</li>
+          <li>Structure of the Database</li>
+          <li>Creating Tables in the Database</li>
+          <li>Connecting to the Database and Loading Information</li>
+          <li>GetChatAdministrators</li>
+          <li>Active Inline Mode</li>
+          <li>Nested Menus</li>
+          <li>Messaging Clients</li>
+          <li>Multidimensional Arrays</li>
+          <li>Callback Data</li>
+          <li>Reply_Markup</li>
+          <li>Reply_KeyboardRemove</li>
+          <li>ForceReply</li>
+          <li>Simulation of a Registration System</li>
+          <li>PHP Syntax</li>
+          <li>Variables</li>
+          <li>Arrays</li>
+          <li>Conditional Statements</li>
+          <li>Comparison Operators</li>
+          <li>Switch Case</li>
+          <li>While Loops</li>
+          <li>For Loops</li>
+          <li>Foreach Loops</li>
+          <li>Magic Methods</li>
+          <li>Predefined Constants</li>
+          <li>Functions</li>
+          <li>Global PHP Functions</li>
+          <li>Math in PHP</li>
+          <li>Strings in PHP</li>
+          <li>File Handling</li>
+        </ol>
       </div>
-    </section>
 
-    <!-- Scripts -->
-    <script src="javascript/script.js"></script>
-    <script>
+      <div class="block">
+        <h2>២០ ចំណុចដែលខ្ញុំមិនយល់ពីវីដេអូ</h2>
+        <ol>
+          <li>Timestamps and Dates</li>
+          <li>Database CRUD Operations</li>
+          <li>GET and POST, Superglobals</li>
+          <li>GetFile</li>
+          <li>Markdown Style</li>
+          <li>Disabling Web View</li>
+          <li>Random Photo</li>
+          <li>Resize_Keyboard</li>
+          <li>Activity Buttons and Related Functions</li>
+          <li>Set Step and Admin Section</li>
+          <li>Admin Panel</li>
+          <li>Maintaining Menu and Bot Files</li>
+          <li>Send Location</li>
+          <li>Send Voice / Send Video Note</li>
+          <li>KickChatMember</li>
+          <li>Linking Google Analytics with Google AdSense</li>
+          <li>Tracking Marketing Campaigns</li>
+          <li>How to Set Up Goals and Conversions</li>
+          <li>How to Remove Internal Traffic</li>
+          <li>How to Set Up Goals and Conversions (duplicate entry)</li>
+        </ol>
+      </div>
 
-      fetch("number-reading/index.html")
-        .then((response) => response.text())
-        .then((data) => {
-          document.getElementById("include-number-reader").innerHTML = data;
-        });
+      <div class="block">
+        <h2>១០ ចំណុចដែលខ្ញុំចង់សិក្សបន្ថែមពីវីដេអូ</h2>
+        <ol>
+          <li>How to create different views for backup of our main data</li>
+          <li>Setting up Google Analytics with any kind of website</li>
+          <li>Setting up a Google Merchant demo account</li>
+          <li>How to configure the basics of Telegram Bot and PHP</li>
+          <li>How to set up a Webhook</li>
+          <li>How to use our system as a free web server</li>
+          <li>How to get information and check details from our JSON file</li>
+          <li>Encoding and Decoding JSON</li>
+          <li>Working more with Message Methods</li>
+          <li>How to getUserProfilePhotos</li>
+        </ol>
+      </div>
+    </div>
+  </section>
 
-      fetch("user-guideline/index.html")
-        .then((response) => response.text())
-        .then((data) => {
-          document.getElementById("include-user-guideline").innerHTML = data;
-        });
+  <!-- Instructions -->
+  <section id="instruction" class="hidden">
+    <h2>INSTRUCTIONS</h2>
+    <div class="instruction">
+      <img src="images/instruction1.jpg" alt="Instruction step 1" />
+      <img src="images/instruction2.jpg" alt="Instruction step 2" />
+    </div>
+  </section>
 
-      fetch("practice/index.html")
-        .then((response) => response.text())
-        .then((data) => {
-          document.getElementById("include-practice").innerHTML = data;
-        });
+  <!-- Scripts -->
+  <script src="javascript/script.js"></script>
+</body>
 
-    </script>
-  </body>
 </html>
