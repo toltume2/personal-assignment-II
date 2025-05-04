@@ -3,9 +3,15 @@ html {
   /* Smooth scrolling */
 }
 
+@font-face {
+  font-family: 'Khmer OS Siemreap';
+  src: url('fonts/KhmerOSSiemreap.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+
 body {
   margin: 0;
-  /* font-family: "Poppins", sans-serif; */
   font-family: 'Khmer OS Siemreap', 'Arial', sans-serif;
   background: #f4f4f4;
   color: #333;
